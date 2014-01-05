@@ -14,15 +14,15 @@ describe 'ntp::default' do
   end # let
 
   it 'should install ntp' do
-    chef_run.should install_package 'ntp'
+    expect(chef_run).to install_package('ntp')
   end # it
 
   it 'should stop ntpd' do
-    chef_run.should stop_service 'ntpd'
+    expect(chef_run).to stop_service('ntpd')
   end # it
 
   it 'should disable ntpd' do
-    chef_run.should disable_service 'ntpd'
+    expect(chef_run).to disable_service('ntpd')
   end # it
 
   it 'should create /etc/cron.hourly/ntpdate owned by root:root' do
@@ -33,7 +33,7 @@ describe 'ntp::default' do
   end # it
 
   # it 'should execute /usr/sbin/ntpdate time.nist.gov' do
-  #   chef_run.should execute_command '/usr/sbin/ntpdate time.nist.gov'
+  #   expect(chef_run).to execute_command('/usr/sbin/ntpdate time.nist.gov')
   # end # it
 
 end # describe
