@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 # Cookbook Name:: ntp
 # Recipe:: default
@@ -33,8 +34,8 @@ template '/etc/cron.hourly/ntpdate' do |t|
   mode    '0755'
   # chcon   'system_u:object_r:bin_t'
   variables(
-    :header => node['file']['header'].gsub('@filename', t.name).
-      gsub('@hostname', node['hostname'])
+    :header => node['file']['header'].gsub('@filename', t.name)
+      .gsub('@hostname', node['hostname'])
   )
   action  :create
 end # template
