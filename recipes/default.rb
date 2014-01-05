@@ -24,7 +24,7 @@ package 'ntp'
 
 service 'ntpd' do
   action [:stop, :disable]
-end # service 'ntpd'
+end # service
 
 
 template '/etc/cron.hourly/ntpdate' do |t|
@@ -37,4 +37,4 @@ template '/etc/cron.hourly/ntpdate' do |t|
       gsub('@hostname', node['hostname'])
   )
   action  :create
-end # template '/etc/cron.hourly/ntpdate'
+end # template
