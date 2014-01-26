@@ -4,6 +4,7 @@ CHANGELOG
 TBD
 ------------------
 
+- `NEW` add emeril gem to publish cookbook | [#40][]
 - `IMPROVE` update [README](README.md) | [#32][]
 - `NEW` add [TESTING](TESTING.md) | [#31][]
 - `NEW` add integration tests (via test-kitchen/serverspec) | [#31][] [#34][]
@@ -51,3 +52,4 @@ Legend
 [#31]: https://github.com/jhx/cookbook-ntp/issues/31
 [#32]: https://github.com/jhx/cookbook-ntp/issues/32
 [#34]: https://github.com/jhx/cookbook-ntp/issues/34
+[#40]: https://github.com/jhx/cookbook-ntp/issues/40
