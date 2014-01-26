@@ -14,26 +14,26 @@ describe 'ntp::default' do
     end.converge(described_recipe)
   end # let
 
-  it 'should install ntp' do
+  it 'installs ntp' do
     expect(chef_run).to install_package('ntp')
   end # it
 
-  it 'should stop ntpd' do
+  it 'stops ntpd' do
     expect(chef_run).to stop_service('ntpd')
   end # it
 
-  it 'should disable ntpd' do
+  it 'disables ntpd' do
     expect(chef_run).to disable_service('ntpd')
   end # it
 
-  it 'should create /etc/cron.hourly/ntpdate owned by root:root' do
+  it 'creates /etc/cron.hourly/ntpdate owned by root:root' do
     file = '/etc/cron.hourly/ntpdate'
     expect(chef_run).to create_template(file)
       .with(:owner => 'root', :group => 'root')
     expect(chef_run).to render_file(file).with_content('node.file.header')
   end # it
 
-  # it 'should execute /usr/sbin/ntpdate time.nist.gov' do
+  # it 'executes /usr/sbin/ntpdate time.nist.gov' do
   #   expect(chef_run).to execute_command('/usr/sbin/ntpdate time.nist.gov')
   # end # it
 
