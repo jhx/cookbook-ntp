@@ -5,12 +5,8 @@ describe 'ntp::default' do
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['file'] = {
-        'header' => 'node.file.header'
-      }
-      node.set['ntp'] = {
-        'server' => 'time.nist.gov'
-      }
+      node.set['file']['header'] = 'node.file.header'
+      node.set['ntp']['server'] = 'time.nist.gov'
     end.converge(described_recipe)
   end # let
 

@@ -2,13 +2,13 @@
 require 'spec_helper'
 
 describe 'ntp::default' do
-  context package('ntp') do
+  describe package('ntp') do
     it 'is installed' do
       expect(subject).to be_installed
     end # it
-  end # context
+  end # describe
 
-  context service('ntp') do
+  describe service('ntp') do
     it 'is not running' do
       expect(subject).to_not be_running
     end # it
@@ -16,9 +16,9 @@ describe 'ntp::default' do
     it 'is not enabled' do
       expect(subject).to_not be_enabled
     end # it
-  end # context
+  end # describe
 
-  context file('/etc/cron.hourly/ntpdate') do
+  describe file('/etc/cron.hourly/ntpdate') do
     it 'is file' do
       expect(subject).to be_file
     end # it
@@ -39,6 +39,6 @@ describe 'ntp::default' do
       expect(subject.content)
         .to match('ntpdate fake.time.server >> /dev/null 2>&1')
     end # it
-  end # context
+  end # describe
 
 end # describe
