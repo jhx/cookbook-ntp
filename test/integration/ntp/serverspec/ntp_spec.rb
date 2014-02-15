@@ -35,9 +35,10 @@ describe 'ntp::default' do
       expect(subject).to be_mode(755)
     end # it
 
-    it 'matches expected content' do
-      expect(subject.content)
-        .to match('ntpdate fake.time.server >> /dev/null 2>&1')
+    it 'includes expected content' do
+      expect(subject.content).to include(
+        'ntpdate fake.time.server >> /dev/null 2>&1'
+      )
     end # it
   end # describe
 
