@@ -1,6 +1,7 @@
 ntp Cookbook
 ============
 [![Build Status](https://travis-ci.org/jhx/cookbook-ntp.png?branch=master)](https://travis-ci.org/jhx/cookbook-ntp)
+[![Dependency Status](https://gemnasium.com/jhx/cookbook-ntp.png)](https://gemnasium.com/jhx/cookbook-ntp)
 
 Installs and configures ntp (network time daemon).
 
