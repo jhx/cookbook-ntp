@@ -22,12 +22,17 @@ describe 'ntp::default' do
     expect(chef_run).to disable_service('ntpd')
   end # it
 
-  it 'creates /etc/cron.hourly/ntpdate owned by root:root' do
-    file = '/etc/cron.hourly/ntpdate'
-    expect(chef_run).to create_template(file)
-      .with(:owner => 'root', :group => 'root')
-    expect(chef_run).to render_file(file).with_content('node.file.header')
-  end # it
+  describe '/etc/cron.hourly/ntpdate' do
+    it 'creates template with expected owner, group' do
+      expect(chef_run).to create_template(subject)
+        .with(:owner => 'root', :group => 'root')
+    end # it
+
+    it 'renders file with expected header' do
+      expect(chef_run).to render_file(subject)
+        .with_content('node.file.header')
+    end # it
+  end # describe
 
   # it 'executes /usr/sbin/ntpdate time.nist.gov' do
   #   expect(chef_run).to execute_command('/usr/sbin/ntpdate time.nist.gov')
