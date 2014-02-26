@@ -25,9 +25,9 @@ describe 'ntp::default' do
   end # it
 
   describe '/etc/cron.hourly/ntpdate' do
-    it 'creates template with expected owner, group' do
+    it 'creates template with expected owner, group, mode' do
       expect(chef_run).to create_template(subject)
-        .with(:owner => 'root', :group => 'root')
+        .with(:owner => 'root', :group => 'root', :mode => '0755')
     end # it
 
     it 'renders file with expected header' do
