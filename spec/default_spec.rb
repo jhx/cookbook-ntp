@@ -10,9 +10,11 @@ describe 'ntp::default' do
     end.converge(described_recipe)
   end # let
 
-  it 'installs ntp' do
-    expect(chef_run).to install_package('ntp')
-  end # it
+  describe 'ntp' do
+    it 'installs described package' do
+      expect(chef_run).to install_package(subject)
+    end # it
+  end # describe
 
   it 'stops ntpd' do
     expect(chef_run).to stop_service('ntpd')
