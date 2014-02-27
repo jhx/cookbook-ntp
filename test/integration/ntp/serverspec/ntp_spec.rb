@@ -19,7 +19,7 @@ describe 'ntp::default' do
   end # describe
 
   describe file('/etc/cron.hourly/ntpdate') do
-    it 'is file' do
+    it 'is a file' do
       expect(subject).to be_file
     end # it
 
