@@ -16,13 +16,15 @@ describe 'ntp::default' do
     end # it
   end # describe
 
-  it 'stops ntpd' do
-    expect(chef_run).to stop_service('ntpd')
-  end # it
+  describe 'ntpd' do
+    it 'stops described service' do
+      expect(chef_run).to stop_service(subject)
+    end # it
 
-  it 'disables ntpd' do
-    expect(chef_run).to disable_service('ntpd')
-  end # it
+    it 'disables described service' do
+      expect(chef_run).to disable_service(subject)
+    end # it
+  end # describe
 
   describe '/etc/cron.hourly/ntpdate' do
     it 'creates template with expected owner, group, mode' do
